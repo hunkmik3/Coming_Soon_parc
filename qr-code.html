@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mã QR - Parcmall Coming Soon</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .qr-code {
+            margin: 20px 0;
+        }
+        .url {
+            color: #666;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        .download-btn {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .download-btn:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏪 Parcmall - Coming Soon</h1>
+        <div class="qr-code">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://coming-soon-parc.vercel.app/" 
+                 alt="QR Code Parcmall" 
+                 width="300" 
+                 height="300">
+        </div>
+        <div class="url">
+            <strong>URL:</strong> https://coming-soon-parc.vercel.app/
+        </div>
+        <a href="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://coming-soon-parc.vercel.app/" 
+           download="parcmall-qr-code.png" 
+           class="download-btn">
+            📥 Tải xuống mã QR
+        </a>
+    </div>
+</body>
+</html> 
