@@ -95,12 +95,9 @@
   </header>  
 
   <script>
-    // Change the value of countDownEndDate to the day you want to end the count down
     // Set countdown to 30 days from now
     var today = new Date();
-    var countDownEndDate = new Date(today.getTime() + (30 * 24 * 60 * 60 * 1000)).toLocaleString();
-    
-    var endDate = new Date(countDownEndDate).getTime();
+    var endDate = new Date(today.getTime() + (30 * 24 * 60 * 60 * 1000)).getTime();
     
     var x = setInterval(function() {
     
