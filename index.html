@@ -116,9 +116,9 @@
   </header>  
 
   <script>
-    // Set countdown to 30 days from now
-    var today = new Date();
-    var endDate = new Date(today.getTime() + (30 * 24 * 60 * 60 * 1000)).getTime();
+    // Set countdown to a fixed date (30 days from a specific start date)
+    // You can change this date to your desired launch date
+    var endDate = new Date("2024-02-15T00:00:00").getTime();
     
     var x = setInterval(function() {
     
