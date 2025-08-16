@@ -55,8 +55,27 @@
 
   
   <!-- Header -->
-  <header class="w-full bg-[url('assets/img/parcmall.jpg')] bg-cover bg-bottom">  
-    <div class="w-full min-h-screen md:w-1/2 bg-gradient-to-b from-gray-900/70 to-gray-900/80 p-10 flex">
+  <header class="w-full relative">
+    <!-- Desktop Banner (Image) - Hidden on mobile -->
+    <div class="hidden md:block w-full h-screen bg-[url('assets/img/parcmall.jpg')] bg-cover bg-bottom absolute inset-0 z-0"></div>
+    
+    <!-- Mobile Banner (Video) - Hidden on desktop -->
+    <div class="md:hidden w-full h-screen absolute inset-0 z-0">
+      <video 
+        class="w-full h-full object-cover" 
+        autoplay 
+        muted 
+        loop 
+        playsinline
+        poster="assets/img/parcmall.jpg">
+        <source src="assets/video/parcmall-mobile.mp4" type="video/mp4">
+        <!-- Fallback to image if video fails -->
+        <img src="assets/img/parcmall.jpg" alt="Parcmall Banner" class="w-full h-full object-cover">
+      </video>
+    </div>  
+    
+    <!-- Content Layer - Above background -->
+    <div class="relative z-10 w-full min-h-screen md:w-1/2 bg-gradient-to-b from-gray-900/70 to-gray-900/80 p-10 flex">
       <div class="w-full text-center my-auto">
 
         <h6 class="font-Montserrat font-bold uppercase text-5xl md:text-6xl lg:text-7xl mb-14 md:-mr-20 text-blue-400 md:text-right">Coming <span class="text-purple-400 md:-mr-20">back</span></h6>
@@ -116,9 +135,9 @@
   </header>  
 
   <script>
-    // Set countdown to August 30, 2025
+    // Set countdown to end of August 30, 2025 (23:59:59)
     // You can change this date to your desired launch date
-    var endDate = new Date("2025-08-30T00:00:00").getTime();
+    var endDate = new Date("2025-08-30T23:59:59").getTime();
     
     var x = setInterval(function() {
     
