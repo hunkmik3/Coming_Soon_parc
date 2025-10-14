@@ -1,0 +1,99 @@
+:root{
+  --dur-open: 900ms;
+  --dur-to-final: 1000ms;
+  --ease: cubic-bezier(.2,.8,.2,1);
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background:#fff;
+  overflow:hidden;
+}
+
+.stage{
+  position:relative;
+  width:100%;
+  height:100%;
+  display:grid;
+  place-items:center;
+}
+
+.bg{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover; pointer-events:none;
+}
+
+.envelope{
+  position:relative;
+  width:min(90vw, 960px);
+  aspect-ratio:16/11;
+}
+
+.envelope .layer{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:contain;
+  will-change: transform, opacity;
+  pointer-events:none;
+}
+
+/* Idle wobble */
+.stage.idle .envelope{
+  animation:wobble 2.4s ease-in-out infinite;
+}
+@keyframes wobble{
+  0%,100%{ transform:rotate(0deg) translateY(0); }
+  25%{ transform:rotate(-1.2deg) translateY(-2px); }
+  50%{ transform:rotate(0.8deg) translateY(1px); }
+  75%{ transform:rotate(-0.6deg) translateY(-1px); }
+}
+
+/* Layers default visibility */
+.envelope .open,
+.envelope .letter{ opacity:0; transform:translateY(10px) scale(.98); }
+
+/* Show closed by default */
+.envelope .closed{ opacity:1; }
+
+/* Stage-based visibility (user-driven) */
+.stage.stage1 .envelope{ animation:none; }
+.stage.stage1 .closed{
+  opacity:0;
+  transform:translateY(-6px) scale(.99);
+  transition:opacity var(--dur-open) var(--ease),
+             transform var(--dur-open) var(--ease);
+}
+.stage.stage1 .open{
+  opacity:1;
+  transform:translateY(0) scale(1.06); /* phóng to envelope-open */
+  transition:opacity var(--dur-open) var(--ease),
+             transform var(--dur-open) var(--ease);
+}
+
+.stage.stage2 .letter.step2{
+  opacity:1;
+  transform:translateY(-6%) scale(1.06); /* phóng to letter step2 */
+  transition:opacity var(--dur-open) var(--ease),
+             transform var(--dur-open) var(--ease);
+}
+
+/* Button */
+.open-btn{
+  position:absolute; bottom:5vh;
+  padding:12px 24px; font-size:18px; font-weight:600;
+  border-radius:999px; border:none; color:#fff;
+  background:#ff6a00; box-shadow:0 10px 24px rgba(255,106,0,.35);
+  cursor:pointer;
+}
+.open-btn:disabled{ opacity:.6; cursor:not-allowed; }
+.stage.stage2 .open-btn{ display:none; }
+
+@media (max-width:640px){
+  .open-btn{ font-size:16px; padding:10px 20px; }
+}
+
+
