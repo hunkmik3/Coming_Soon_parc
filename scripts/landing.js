@@ -4,7 +4,6 @@
 
   // Layers
   const closedEl = document.querySelector('.envelope .closed');
-  const step2El = document.querySelector('.envelope .letter.step2');
 
   // Durations (keep in sync with CSS variables)
   var DUR_OPEN = 900;      // --dur-open
@@ -13,25 +12,23 @@
 
   // Preload images to avoid flicker
   const sources = [
-    'assets/envelope-open.png',
-    'assets/letter-step2.png'
+    'assets/envelope-open.png'
   ];
   sources.forEach(function(src){ var i = new Image(); i.src = src; });
 
-  var currentStage = 0; // 0: idle/closed, 1: open visible, 2: step2
+  var currentStage = 0; // 0: idle/closed, 1: open visible
 
   function nextStage(){
-    if (currentStage >= 2) return;
+    if (currentStage >= 1) return;
     stage.classList.remove('idle');
     currentStage += 1;
-    stage.classList.remove('stage1','stage2','stage3');
+    stage.classList.remove('stage1','stage2');
     stage.classList.add('stage' + currentStage);
 
     // Ẩn hẳn layer của stage trước sau khi chuyển xong
     if (currentStage === 1){
       window.setTimeout(function(){ if (closedEl) closedEl.style.display = 'none'; }, DUR_OPEN + BUFFER);
-    } else if (currentStage === 2){
-      // stage2 là bước cuối: nút sẽ ẩn bằng CSS
+      // stage1 là bước cuối: nút sẽ ẩn bằng CSS
       btn.disabled = true;
     }
   }

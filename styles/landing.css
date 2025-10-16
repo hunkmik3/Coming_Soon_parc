@@ -74,12 +74,6 @@ body{
              transform var(--dur-open) var(--ease);
 }
 
-.stage.stage2 .letter.step2{
-  opacity:1;
-  transform:translateY(-6%) scale(1.06); /* phóng to letter step2 */
-  transition:opacity var(--dur-open) var(--ease),
-             transform var(--dur-open) var(--ease);
-}
 
 /* Button */
 .open-btn{
@@ -90,10 +84,13 @@ body{
   cursor:pointer;
 }
 .open-btn:disabled{ opacity:.6; cursor:not-allowed; }
-.stage.stage2 .open-btn{ display:none; }
+.stage.stage1 .open-btn{ display:none; }
 
 @media (max-width:640px){
   .open-btn{ font-size:16px; padding:10px 20px; }
+  
+  /* Mobile background */
+  .bg{ content: url('assets/bg_mobile.png'); }
 }
 
 
