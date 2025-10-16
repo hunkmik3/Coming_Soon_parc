@@ -119,6 +119,12 @@ body.loaded .stage {
     transform: scale(0.85);
     transform-origin: center;
   }
+  
+  /* Phóng to lá thư ở stage 2 trên mobile */
+  .stage.stage1 .envelope{
+    transform: scale(1.2);
+    transform-origin: center;
+  }
 }
 
 
