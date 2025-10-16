@@ -1,5 +1,5 @@
 :root{
-  --dur-open: 900ms;
+  --dur-open: 1700ms;
   --dur-to-final: 1000ms;
   --ease: cubic-bezier(.2,.8,.2,1);
 }
@@ -66,8 +66,18 @@ body.loaded .stage {
 .envelope .open,
 .envelope .letter{ opacity:0; transform:translateY(10px) scale(.98); }
 
-/* Show closed by default */
-.envelope .closed{ opacity:1; }
+/* Show closed by default with transition for reverse animation */
+.envelope .closed{ 
+  opacity:1; 
+  transform:translateY(0) scale(1);
+  transition:opacity var(--dur-open) var(--ease),
+             transform var(--dur-open) var(--ease);
+}
+/* Also transition the open layer so it fades both directions */
+.envelope .open{
+  transition:opacity var(--dur-open) var(--ease),
+             transform var(--dur-open) var(--ease);
+}
 
 /* Stage-based visibility (user-driven) */
 .stage.stage1 .envelope{ animation:none; }
@@ -98,7 +108,7 @@ body.loaded .stage {
   z-index:10;
 }
 .open-btn:disabled{ opacity:0; cursor:not-allowed; }
-.stage.stage1 .open-btn{ display:none; }
+.stage.stage1 .open-btn{ display:block; }
 
 @media (max-width:640px){
   .open-btn{ 
