@@ -37,7 +37,7 @@
   // Set mobile background based on screen size
   function setBackground(){
     if (window.innerWidth <= 640) {
-      bgImg.src = 'assets/bg_mobile.png';
+      bgImg.src = 'assets/bg_mobile.jpg';
     } else {
       bgImg.src = 'assets/bg.jpg';
     }
