@@ -13,6 +13,16 @@ body{
   overflow:hidden;
 }
 
+/* Ẩn nội dung cho đến khi JavaScript load xong */
+body.loading .stage {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+body.loaded .stage {
+  opacity: 1;
+}
+
 .stage{
   position:relative;
   width:100%;
@@ -100,7 +110,7 @@ body{
   /* Hiển thị đầy đủ background ở mobile */
   .bg{ 
     object-fit: contain;
-    transform: scale(1.1);
+    transform: scale(1);
     transform-origin: center;
   }
   

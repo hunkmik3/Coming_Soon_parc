@@ -48,6 +48,10 @@
   
   // Update background on resize
   window.addEventListener('resize', setBackground);
+  
+  // Remove loading class when everything is ready
+  document.body.classList.remove('loading');
+  document.body.classList.add('loaded');
 
   btn.addEventListener('click', nextStage);
   btn.addEventListener('keyup', function(e){
