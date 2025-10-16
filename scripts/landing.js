@@ -1,6 +1,7 @@
 (function(){
   const stage = document.querySelector('.stage');
   const btn = document.querySelector('.open-btn');
+  const bgImg = document.querySelector('.bg');
 
   // Layers
   const closedEl = document.querySelector('.envelope .closed');
@@ -32,6 +33,21 @@
       btn.disabled = true;
     }
   }
+
+  // Set mobile background based on screen size
+  function setBackground(){
+    if (window.innerWidth <= 640) {
+      bgImg.src = 'assets/bg_mobile.png';
+    } else {
+      bgImg.src = 'assets/bg.jpg';
+    }
+  }
+  
+  // Set initial background
+  setBackground();
+  
+  // Update background on resize
+  window.addEventListener('resize', setBackground);
 
   btn.addEventListener('click', nextStage);
   btn.addEventListener('keyup', function(e){
