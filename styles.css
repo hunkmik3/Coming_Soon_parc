@@ -189,6 +189,10 @@ body {
     animation: shake 2s ease-in-out infinite;
 }
 
+.slide-1 .invitation {
+    animation: shake 2s ease-in-out infinite;
+}
+
 .invitation {
     max-width: 510px;
     height: auto;
@@ -197,9 +201,10 @@ body {
 
 /* Thu nhỏ và thêm hiệu ứng cho thư mời ở slide 2 */
 .slide-2 .invitation {
-    max-width: 420px;
+    max-width: 399px;
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
+    margin-top: -20px;
 }
 
 .slide-2 .invitation:hover {
@@ -319,7 +324,8 @@ body {
     }
     
     .slide-2 .invitation {
-        max-width: 336px;
+        max-width: 319px;
+        margin-top: -15px;
     }
     
     .costume-text {
@@ -372,7 +378,8 @@ body {
     }
     
     .slide-2 .invitation {
-        max-width: 302px;
+        max-width: 287px;
+        margin-top: -10px;
     }
     
     .costume-text {
