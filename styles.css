@@ -201,7 +201,7 @@ body {
 
 /* Thu nhỏ và thêm hiệu ứng cho thư mời ở slide 2 */
 .slide-2 .invitation {
-    max-width: 451px;
+    max-width: 428px;
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
     margin-top: -30px;
@@ -324,7 +324,7 @@ body {
     }
     
     .slide-2 .invitation {
-        max-width: 361px;
+        max-width: 343px;
         margin-top: -25px;
     }
     
@@ -378,7 +378,7 @@ body {
     }
     
     .slide-2 .invitation {
-        max-width: 324px;
+        max-width: 308px;
         margin-top: -20px;
     }
     
