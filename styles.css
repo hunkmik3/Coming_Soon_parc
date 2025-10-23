@@ -1,0 +1,401 @@
+/* Reset và base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Slide styles */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Hiệu ứng fade in cho slide mới */
+.slide.slide-in {
+    animation: slideInFromRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.slide.slide-out {
+    animation: slideOutToLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Keyframes cho hiệu ứng chuyển slide */
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutToLeft {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+/* Hiệu ứng bounce cho các thành phần khi slide xuất hiện */
+.slide.active .logo-container,
+.slide.active .halloween-text-container,
+.slide.active .invitation-container,
+.slide.active .costume-text-container,
+.slide.active .costume-text-container2,
+.slide.active .ok-button-container {
+    animation: bounceIn 0.6s ease-out 0.3s both;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translateY(-50px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05) translateY(0);
+    }
+    70% {
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Background images */
+.slide-1 {
+    background-image: url('./images/Background Slide 2.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000; /* Fallback color */
+}
+
+.slide-2 {
+    background-image: url('./images/Background Slide 1.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000; /* Fallback color */
+}
+
+/* Slide 1 Layout */
+.slide-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    gap: 15px;
+}
+
+/* Slide 2 Layout */
+.slide-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    gap: 15px;
+}
+
+/* Ẩn các thành phần không cần thiết của slide 1 khi ở slide 2 */
+.slide-2 .costume-text-container,
+.slide-2 .costume-text-container2,
+.slide-2 .ok-button-container {
+    display: none;
+}
+
+/* Logo container */
+.logo-container {
+    margin-top: 20px;
+    z-index: 10;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+    display: block;
+}
+
+/* Halloween text container */
+.halloween-text-container {
+    z-index: 10;
+    padding-top: 20px;
+}
+
+.halloween-text {
+    max-width: 345px;
+    height: auto;
+    display: block;
+}
+
+/* Invitation container */
+.invitation-container {
+    z-index: 10;
+    margin: 20px 0;
+    padding: 15px;
+}
+
+/* Hiệu ứng rung lắc cho lá thư - chỉ áp dụng cho slide 1 */
+.slide-1 .invitation-container {
+    animation: shake 2s ease-in-out infinite;
+}
+
+.invitation {
+    max-width: 600px;
+    height: auto;
+    display: block;
+}
+
+/* Thu nhỏ và thêm hiệu ứng cho thư mời ở slide 2 */
+.slide-2 .invitation {
+    max-width: 420px;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.slide-2 .invitation:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+}
+
+/* Hiệu ứng rung lắc cho lá thư */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-2px) rotate(-1deg);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(2px) rotate(1deg);
+    }
+}
+
+/* Costume text container */
+.costume-text-container {
+    z-index: 10;
+}
+
+.costume-text-container2 {
+    z-index: 10;
+}
+
+.costume-text {
+    max-width: 364px;
+    height: auto;
+    display: block;
+}
+
+/* OK button container */
+.ok-button-container {
+    z-index: 10;
+    margin-top: 10px;
+}
+
+.ok-button {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.ok-button:hover {
+    transform: scale(1.05);
+}
+
+/* Navigation dots */
+.nav-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #ff6b35;
+    transform: scale(1.2);
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .slide-1, .slide-2 {
+        background-size: contain;
+        background-position: center top;
+    }
+    
+    .slide-1 {
+        padding: 15px;
+        gap: 10px;
+    }
+    
+    .slide-2 {
+        padding: 15px;
+        gap: 10px;
+    }
+    
+    .logo {
+        max-width: 120px;
+    }
+    
+    .halloween-text {
+        max-width: 288px;
+    }
+    
+    .halloween-text-container {
+        padding-top: 15px;
+    }
+    
+    .invitation {
+        max-width: 480px;
+    }
+    
+    .invitation-container {
+        padding: 12px;
+    }
+    
+    .slide-2 .invitation {
+        max-width: 336px;
+    }
+    
+    .costume-text {
+        max-width: 286px;
+    }
+    
+    .costume-text-container2 {
+        margin-top: 5px;
+    }
+    
+    .ok-button {
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-1, .slide-2 {
+        background-size: contain;
+        background-position: center top;
+    }
+    
+    .slide-1 {
+        padding: 10px;
+        gap: 8px;
+    }
+    
+    .slide-2 {
+        padding: 10px;
+        gap: 8px;
+    }
+    
+    .logo {
+        max-width: 100px;
+    }
+    
+    .halloween-text {
+        max-width: 230px;
+    }
+    
+    .halloween-text-container {
+        padding-top: 12px;
+    }
+    
+    .invitation {
+        max-width: 432px;
+    }
+    
+    .invitation-container {
+        padding: 10px;
+    }
+    
+    .slide-2 .invitation {
+        max-width: 302px;
+    }
+    
+    .costume-text {
+        max-width: 234px;
+    }
+    
+    .costume-text-container2 {
+        margin-top: 3px;
+    }
+    
+    .ok-button {
+        max-width: 100px;
+    }
+    
+    .nav-dots {
+        bottom: 20px;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Landscape orientation for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .slide-1, .slide-2 {
+        background-size: contain;
+        background-position: center;
+    }
+    
+    .nav-dots {
+        bottom: 15px;
+    }
+}
