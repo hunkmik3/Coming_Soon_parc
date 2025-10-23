@@ -190,7 +190,7 @@ body {
 }
 
 .invitation {
-    max-width: 600px;
+    max-width: 510px;
     height: auto;
     display: block;
 }
@@ -311,7 +311,7 @@ body {
     }
     
     .invitation {
-        max-width: 480px;
+        max-width: 408px;
     }
     
     .invitation-container {
@@ -364,7 +364,7 @@ body {
     }
     
     .invitation {
-        max-width: 432px;
+        max-width: 367px;
     }
     
     .invitation-container {
