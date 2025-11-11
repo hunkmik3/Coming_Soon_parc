@@ -20,8 +20,6 @@ body {
 
 .wrapper {
     width: 100%;
-    max-width: 480px;
-    padding: 0 16px;
 }
 
 .wrapper img {
