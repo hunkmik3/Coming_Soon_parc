@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+}
+
+.wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Ẩn video trên desktop, hiển thị hình ảnh */
+.mobile-video {
+    display: none;
+}
+
+/* Trên mobile: ẩn hình ảnh, hiển thị video */
+@media (max-width: 640px) {
+    .desktop-image {
+        display: none !important;
+    }
+    
+    .mobile-video {
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        object-fit: contain;
+        object-position: center;
+    }
+    
+    .wrapper {
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
